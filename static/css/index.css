@@ -1,0 +1,314 @@
+/* --- STILI GENERALI --- */
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    margin: 0;         /* Rimuove il bordo bianco esterno */
+    padding: 0;        /* Rimuove spazi interni */
+    overflow-x: hidden; /* Evita scroll orizzontali fastidiosi */
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- FORM E AUTOCOMPLETE --- */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    position: relative; /* Necessario per posizionare i suggerimenti */
+}
+
+.search-container {
+    position: relative;
+    width: 250px;
+}
+
+form input {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Stile per la lista dei suggerimenti */
+.autocomplete-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    color: #333;
+}
+
+.autocomplete-items div {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+    transition: background 0.2s;
+}
+
+.autocomplete-items div:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-items div:hover {
+    background-color: #f0f0f0;
+    color: #0072ff;
+}
+
+form button {
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #00c6ff;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,198,255,0.3);
+}
+
+form button:hover {
+    background: #0072ff;
+    transform: scale(1.05);
+}
+
+/* --- CARDS PREVISIONI --- */
+.forecast-container {
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 40px; /* spazio prima del footer */
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.6s forwards;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.weather-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.weather-card img {
+    width: 80px; /* Ingrandita per visibilità */
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
+    margin: 10px 0;
+}
+
+.weather-card h5 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.weather-card small {
+    display: block;
+    text-transform: capitalize;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* --- ANIMAZIONI --- */
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    margin-top: auto;
+    padding: 20px 15px;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.author {
+    font-weight: 600;
+    color: #00c6ff;
+}
+
+/* Social */
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+
+.social-item:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
+.error-message {
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 12px 18px;
+    text-align: center;
+    border-radius: 12px;
+
+    background: rgba(255, 80, 80, 0.15);
+    border: 1px solid rgba(255, 80, 80, 0.35);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: #ffd6d6;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+    animation: fadeSlide 0.4s ease;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet e schermi medi */
+@media (max-width: 992px) {
+    .forecast-container {
+        padding: 0 15px;
+    }
+    
+    .weather-card {
+        padding: 15px;
+    }
+
+    
+}
+
+/* Smartphone (sotto i 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+    }
+
+    form {
+        flex-direction: column; /* Input e bottone uno sopra l'altro */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .search-container {
+        width: 100%; /* L'input prende tutta la larghezza disponibile */
+        max-width: 300px;
+    }
+
+    form button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .forecast-container {
+        padding-bottom: 80px;
+    }
+
+    .weather-card {
+        margin-bottom: 10px; /* Spazio tra le card in colonna */
+    }
+    
+    .weather-card img {
+        width: 65px; /* Icone leggermente più piccole su mobile */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Smartphone molto piccoli (sotto i 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .weather-card h5 {
+        font-size: 1rem;
+    }
+
+    .weather-card p {
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .social-item {
+        justify-content: center;
+    }
+}
