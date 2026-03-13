@@ -1,7 +1,7 @@
 /* --- STILI GENERALI --- */
 body {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
-    min-height: 100vh;
+    min-height: 100dvh;
     font-family: 'Segoe UI', sans-serif;
     color: white;
     margin: 0;         /* Rimuove il bordo bianco esterno */
