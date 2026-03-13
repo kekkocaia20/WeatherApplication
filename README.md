@@ -10,3 +10,5 @@ Per lo sviluppo ho utilizzato:
 - Bootstrap 📱 per rendere il design responsive e coerente su desktop e mobile.
 
 Il risultato è un’app semplice, moderna e funzionale, con layout chiaro e interattivo.
+
+link sito: https://weatherapplication-4ipl.onrender.com/
